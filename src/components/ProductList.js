@@ -4,7 +4,7 @@ function ProductList({ product, addToCart }) {
     <div className="flex">
       {product.map((productItem, productIndex) => {
         return (
-          <div style={{ width: "50%" }}>
+          <div style={{ width: "33%" }}>
             <div className="product-item">
               <img src={productItem.url} width="100%"></img>
               <p>

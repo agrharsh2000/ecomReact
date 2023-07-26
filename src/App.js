@@ -52,15 +52,24 @@ function App() {
 
   const [cart, setCart] = useState([]);
 
+  const [showCart, setShowCart] = useState(false);
+
   const addToCart = (data) => {
     setCart([...cart, { ...data, quantity: 1 }]);
   };
 
+  const handleShow = (value) => {
+    setShowCart(value);
+  };
+
   return (
     <div>
-      <Header />
-      <ProductList product={product} addToCart={addToCart} />
-      <CartList cart={cart} />
+      <Header count={cart.length} handleShow={handleShow} />
+      {showCart ? (
+        <CartList cart={cart} />
+      ) : (
+        <ProductList product={product} addToCart={addToCart} />
+      )}
     </div>
   );
 }
